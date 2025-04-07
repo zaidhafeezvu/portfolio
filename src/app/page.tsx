@@ -132,7 +132,7 @@ const experience = [
     role: "Lead Engineer",
     company: "Zero Email Inc.",
     period: "Feb 2025 - Present",
-    description: "Leading the frontend development team, implementing new features, and optimizing performance for a SaaS platform with over 50,000 users.",
+    description: "Leading the frontend development team, implementing new features, and optimising performance for a SaaS platform.",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Postgres", "Google APIs"],
   },
   {
