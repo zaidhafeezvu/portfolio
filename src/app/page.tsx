@@ -77,7 +77,7 @@ export default function Home() {
         <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-7 gap-y-6 gap-x-4">
           {tools.map(({ logo, title }, index) => (
             <div key={index} className="flex flex-col items-center">
-              <div className="relative h-12 w-12 mb-3 transition-all duration-300 ease-out group-hover:scale-110 group-hover:-translate-y-1">
+              <div className="relative h-6 w-6 md:h-8 md:w-8 mb-3 transition-all duration-300 ease-out group-hover:scale-110 group-hover:-translate-y-1">
                 <Image src={logo} alt={`${title} logo`} fill className="object-contain drop-shadow-md" loading="eager" />
               </div>
               <span className="text-xs text-zinc-500 dark:text-zinc-400">{title}</span>
