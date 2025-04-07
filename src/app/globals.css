@@ -119,8 +119,8 @@
   body {
     @apply bg-background text-foreground;
   }
+
   
-  /* Smooth theme transitions */
   html {
     transition: color 350ms ease, background-color 350ms ease;
   }
@@ -213,4 +213,3 @@
   50% { opacity: 0; }
 }
 
-/* Simplified animations */
