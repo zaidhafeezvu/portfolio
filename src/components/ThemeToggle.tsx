@@ -12,13 +12,13 @@ export function ThemeToggle() {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
-  // Only show the toggle after hydration to avoid SSR issues
+ 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   if (!mounted) {
-    return <div className="w-8 h-8"></div>; // Placeholder during SSR
+    return <div className="w-8 h-8"></div>;
   }
 
   return (
