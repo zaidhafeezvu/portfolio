@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 max-w-2xl mx-auto px-4 py-16 md:py-24 md:pb-16">
       <section>
-        <h1 className="text-3xl font-medium tracking-tight mb-4">Hey, I'm Ahmet</h1>
+        <h1 className="text-3xl font-medium tracking-tight mb-4">Hey, I&apos;m Ahmet</h1>
         <p className="text-zinc-600 dark:text-zinc-400 max-w-xl mb-6">
           London-based full-stack developer passionate about crafting exceptional digital experiences. I transform complex challenges into elegant, user-centric
           solutions.
