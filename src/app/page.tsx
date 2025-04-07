@@ -23,15 +23,29 @@ export default function Home() {
           {projects.map((project, index) => (
             <li key={index}>
               <div className="flex items-baseline justify-between mb-1">
-                <h3 className="text-lg font-medium">{project.title}</h3>
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-                >
-                  View <ExternalLink className="w-3 h-3" />
-                </a>
+                <h3 className="text-md font-medium">{project.title}</h3>
+                <div className="flex flex-row gap-2">
+                  {project.github ? (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                    >
+                      GitHub <ExternalLink className="w-3 h-3" />
+                    </a>
+                  ) : null}
+                  {project.link ? (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                    >
+                      View <ExternalLink className="w-3 h-3" />
+                    </a>
+                  ) : null}
+                </div>
               </div>
               <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-2">{project.description}</p>
               <div className="flex flex-wrap gap-2">
@@ -53,7 +67,7 @@ export default function Home() {
           {experience.map((job, index) => (
             <li key={index}>
               <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1">
-                <h3 className="text-lg font-medium">
+                <h3 className="text-md font-medium">
                   {job.role} @ {job.company}
                 </h3>
                 <span className="text-xs text-zinc-400 dark:text-zinc-500">{job.period}</span>
@@ -99,6 +113,7 @@ const projects = [
     title: "E-commerce Platform",
     description: "A full-featured e-commerce platform with product management, cart functionality, and payment processing.",
     link: "https://payload-ecommerce-app.vercel.app/",
+    github: "https://github.com/ahmetskilinc/payload-ecommerce",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Payload CMS", "Stripe"],
   },
   {
@@ -108,33 +123,40 @@ const projects = [
     technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
   },
   {
-    title: "Work Hours Tracker",
-    description: "A collaborative task management application with real-time updates and team functionality.",
+    title: "Work Hours Tracker - web",
+    description: "A collaborative task management web application with real-time updates and team functionality.",
     link: "https://work-hours-tracker-chi.vercel.app/",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Socket.io", "Supabase"],
+    github: "https://github.com/ahmetskilinc/work-hours-web",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Web Sockets", "Supabase"],
+  },
+  {
+    title: "Work Hours Tracker - mobile",
+    description: "A collaborative task management mobile application with real-time updates and team functionality.",
+    github: "https://github.com/ahmetskilinc/work-hours-app",
+    technologies: ["Expo", "React Native", "TypeScript", "Web Sockets", "Supabase"],
   },
   {
     title: "Payload CMS Appointment Scheduling Plugin",
     description: "A plugin for Payload CMS that allows users to schedule appointments.",
-    link: "https://github.com/ahmetskilinc/payload-appointments-plugin/",
+    github: "https://github.com/ahmetskilinc/payload-appointments-plugin",
     technologies: ["Next.js", "TypeScript", "Payload CMS"],
   },
   {
     title: "Payload CMS Media Grid View Plugin",
     description: "A plugin for Payload CMS that allows users to view media in a grid view.",
-    link: "https://github.com/ahmetskilinc/payload-media-grid-view-plugin/",
+    github: "https://github.com/ahmetskilinc/payload-media-grid-view-plugin",
     technologies: ["Next.js", "TypeScript", "Payload CMS"],
   },
 ];
 
 const experience = [
-  {
-    role: "Lead Engineer",
-    company: "Zero Email Inc.",
-    period: "Feb 2025 - Present",
-    description: "Leading the frontend development team, implementing new features, and optimising performance for a SaaS platform.",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Postgres", "Google APIs"],
-  },
+  // {
+  //   role: "Lead Engineer",
+  //   company: "Zero Email Inc.",
+  //   period: "Feb 2025 - Present",
+  //   description: "Leading the frontend development team, implementing new features, and optimising performance for a SaaS platform.",
+  //   technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Postgres", "Google APIs"],
+  // },
   {
     role: "Self Employed",
     company: "Various Clients",
