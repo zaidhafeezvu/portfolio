@@ -31,13 +31,12 @@ export function AnimateIn({
   const ref = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
-    // Initial animation based on delay
     const timeout = setTimeout(() => {
       setIsVisible(true);
       if (once) setHasAnimated(true);
     }, delay * 1000);
     
-    // If not once, set up intersection observer for re-animation
+   
     if (!once && typeof window !== 'undefined' && 'IntersectionObserver' in window) {
       const observer = new IntersectionObserver(
         (entries) => {
@@ -69,9 +68,9 @@ export function AnimateIn({
     return () => clearTimeout(timeout);
   }, [delay, once, hasAnimated]);
   
-  // Animation styles based on variant
+
   const getAnimationStyles = () => {
-    if (hasAnimated && once) return {}; // No animation if already animated and once is true
+    if (hasAnimated && once) return {};
     
     const baseStyles = {
       opacity: isVisible ? 1 : 0,
