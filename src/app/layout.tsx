@@ -20,7 +20,7 @@ const RootLayout: React.FC<Props> = ({ children }) => {
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body className="font-geist-sans">{children}</body>
+      <body className="font-geist-sans bg-white">{children}</body>
       <GoogleAnalytics gaId="G-M80GLPRQFQ" />
     </html>
   );
@@ -29,7 +29,7 @@ const RootLayout: React.FC<Props> = ({ children }) => {
 export default RootLayout;
 
 export const viewport: Viewport = {
-  themeColor: "#0F172A",
+  themeColor: "##ffffff",
   initialScale: 1,
 };
 
