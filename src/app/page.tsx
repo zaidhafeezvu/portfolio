@@ -1,5 +1,5 @@
 import SocialMedia from "@/components/SocialMedia";
-import { Github, Twitter, Mail, Linkedin, Instagram, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
