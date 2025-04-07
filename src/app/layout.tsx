@@ -3,6 +3,7 @@ import { getUrl } from "@/utilities/getUrl";
 import { Geist_Mono, Geist } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Metadata, Viewport } from "next";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 type Props = {
   children: React.ReactNode;
@@ -14,13 +15,22 @@ const GeistMono = Geist_Mono({
   variable: "--font-geist-mono",
 });
 
+
 const RootLayout: React.FC<Props> = ({ children }) => {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+    <html 
+      lang="en" 
+      className={`${GeistSans.variable} ${GeistMono.variable}`} 
+      suppressHydrationWarning
+    >
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body className="font-geist-sans bg-white">{children}</body>
+      <body className="font-geist-sans bg-white dark:bg-zinc-900">
+        <ThemeProvider defaultTheme="system" storageKey="ahmet-theme">
+          {children}
+        </ThemeProvider>
+      </body>
       <GoogleAnalytics gaId="G-M80GLPRQFQ" />
     </html>
   );
