@@ -10,7 +10,7 @@ export default function Home() {
       <div className="absolute top-4 right-4">
         <ThemeToggle />
       </div>
-      
+
       <AnimateIn variant="fadeUp">
         <section className="mb-12">
           <AnimateIn variant="fadeUp" delay={0.2}>
@@ -20,8 +20,8 @@ export default function Home() {
           </AnimateIn>
           <AnimateIn variant="fadeUp" delay={0.4}>
             <p className="text-zinc-600 dark:text-zinc-400 max-w-xl mb-6">
-              London-based full-stack developer passionate about crafting exceptional digital experiences. I transform complex challenges into elegant, user-centric
-              solutions.
+              London-based full-stack developer passionate about crafting exceptional digital experiences. I transform complex challenges into elegant,
+              user-centric solutions.
             </p>
           </AnimateIn>
 
@@ -40,7 +40,7 @@ export default function Home() {
           </AnimateIn>
           <ul className="space-y-8">
             {projects.map((project, index) => (
-              <AnimateIn key={index} variant="fadeLeft" delay={0.3 + (index * 0.1)}>
+              <AnimateIn key={index} variant="fadeLeft" delay={0.3 + index * 0.1}>
                 <li className="group hover:translate-x-1 transition-all duration-300 ease-out">
                   <div className="flex items-baseline justify-between mb-1">
                     <h3 className="text-md font-medium">{project.title}</h3>
@@ -90,7 +90,7 @@ export default function Home() {
           </AnimateIn>
           <ul className="space-y-8">
             {experience.map((job, index) => (
-              <AnimateIn key={index} variant="fadeLeft" delay={0.5 + (index * 0.1)}>
+              <AnimateIn key={index} variant="fadeLeft" delay={0.5 + index * 0.1}>
                 <li className="group hover:translate-x-1 transition-all duration-300 ease-out">
                   <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1">
                     <h3 className="text-md font-medium">
@@ -121,7 +121,7 @@ export default function Home() {
           </AnimateIn>
           <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-7 gap-y-6 gap-x-4">
             {tools.map(({ logo, title }, index) => (
-              <AnimateIn key={index} variant="scale" delay={0.7 + (index * 0.03)}>
+              <AnimateIn key={index} variant="scale" delay={0.7 + index * 0.03}>
                 <div className="flex flex-col items-center group">
                   <div className="relative h-6 w-6 md:h-8 md:w-8 mb-3 transition-all duration-300 ease-out group-hover:scale-110 group-hover:-translate-y-1">
                     <Image src={logo} alt={`${title} logo`} fill className="object-contain drop-shadow-md" loading="eager" />
@@ -186,13 +186,14 @@ const projects = [
 ];
 
 const experience = [
-  // {
-  //   role: "Lead Engineer",
-  //   company: "Zero Email Inc.",
-  //   period: "Feb 2025 - Present",
-  //   description: "Leading the frontend development team, implementing new features, and optimising performance for a SaaS platform.",
-  //   technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Postgres", "Google APIs"],
-  // },
+  {
+    role: "Lead Engineer",
+    company: "Zero Email Inc. (US, remote)",
+    period: "Feb 2025 - Present",
+    description:
+      "Leading the frontend development team, implementing new features, and optimising performance for a new, groundbreaking AI enabled email client.",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Postgres", "Google APIs"],
+  },
   {
     role: "Self Employed",
     company: "Various Clients",
