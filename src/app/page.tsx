@@ -46,70 +46,69 @@ export default function Home() {
           <AnimateIn variant="reveal" delay={0.3}>
             <h2 className="text-lg font-medium tracking-tight mb-4 inline-block">Projects</h2>
           </AnimateIn>
-          {(() => {
-            return (
-              <div className="space-y-8">
-                <ul className="space-y-8">
-                  {visibleProjects.map((project, index) => (
-                    <AnimateIn key={index} variant="fadeLeft" delay={0.3 + index * 0.1}>
-                      <li className="group hover:translate-x-1 transition-all duration-300 ease-out">
-                        <div className="flex items-baseline justify-between mb-1">
-                          <h3 className="text-md font-medium">{project.title}</h3>
-                          <div className="flex flex-row gap-2">
-                            {project.github ? (
-                              <a
-                                href={project.github}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-                              >
-                                GitHub <ExternalLink className="w-3 h-3" />
-                              </a>
-                            ) : null}
-                            {project.link ? (
-                              <a
-                                href={project.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-                              >
-                                View <ExternalLink className="w-3 h-3" />
-                              </a>
-                            ) : null}
-                          </div>
+          <div className="space-y-8">
+            <ul className="space-y-8">
+              {visibleProjects.map((project, index) => {
+                const delay = 0.3 + (index < initialProjectCount ? index : index - initialProjectCount) * 0.1;
+                return (
+                  <AnimateIn key={index} variant="fadeLeft" delay={delay}>
+                    <li className="group hover:translate-x-1 transition-all duration-300 ease-out">
+                      <div className="flex items-baseline justify-between mb-1">
+                        <h3 className="text-md font-medium">{project.title}</h3>
+                        <div className="flex flex-row gap-2">
+                          {project.github ? (
+                            <a
+                              href={project.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                            >
+                              GitHub <ExternalLink className="w-3 h-3" />
+                            </a>
+                          ) : null}
+                          {project.link ? (
+                            <a
+                              href={project.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                            >
+                              View <ExternalLink className="w-3 h-3" />
+                            </a>
+                          ) : null}
                         </div>
-                        <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-2">{project.description}</p>
-                        <div className="flex flex-wrap gap-2">
-                          {project.technologies.map((tech, techIndex) => (
-                            <span key={techIndex} className="text-xs text-zinc-400 dark:text-zinc-500">
-                              {tech}
-                              {techIndex < project.technologies.length - 1 ? " /" : ""}
-                            </span>
-                          ))}
-                        </div>
-                      </li>
-                    </AnimateIn>
-                  ))}
-                </ul>
-                {projects.length > initialProjectCount && (
-                  <button
-                    onClick={() => setIsProjectsExpanded(!isProjectsExpanded)}
-                    className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors mx-auto"
-                  >
-                    {isProjectsExpanded ? (
-                      <>
-                        Show Less <ChevronUp className="w-4 h-4" />
-                      </>
-                    ) : (
-                      <>
-                        Show More Projects <ChevronDown className="w-4 h-4" />
-                      </>
-                    )}
-                  </button>
+                      </div>
+                      <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-2">{project.description}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.map((tech, techIndex) => (
+                          <span key={techIndex} className="text-xs text-zinc-400 dark:text-zinc-500">
+                            {tech}
+                            {techIndex < project.technologies.length - 1 ? " /" : ""}
+                          </span>
+                        ))}
+                      </div>
+                    </li>
+                  </AnimateIn>
+                );
+              })}
+            </ul>
+            {projects.length > initialProjectCount && (
+              <button
+                onClick={() => setIsProjectsExpanded(!isProjectsExpanded)}
+                className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors mx-auto"
+              >
+                {isProjectsExpanded ? (
+                  <>
+                    Show Less <ChevronUp className="w-4 h-4" />
+                  </>
+                ) : (
+                  <>
+                    Show More Projects <ChevronDown className="w-4 h-4" />
+                  </>
                 )}
-              </div>
-            );
-          })()}
+              </button>
+            )}
+          </div>
         </section>
       </AnimateIn>
 
@@ -118,51 +117,50 @@ export default function Home() {
           <AnimateIn variant="reveal" delay={0.5}>
             <h2 className="text-lg font-medium tracking-tight mb-4 inline-block">Experience</h2>
           </AnimateIn>
-          {(() => {
-            return (
-              <div className="space-y-8">
-                <ul className="space-y-8">
-                  {visibleExperience.map((job, index) => (
-                    <AnimateIn key={index} variant="fadeLeft" delay={0.5 + index * 0.1}>
-                      <li className="group hover:translate-x-1 transition-all duration-300 ease-out">
-                        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1">
-                          <h3 className="text-md font-medium">
-                            {job.role} {job.role === "Freelance" ? "" : "at"} {job.company}
-                          </h3>
-                          <span className="text-xs text-zinc-400 dark:text-zinc-500">{job.period}</span>
-                        </div>
-                        <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-2">{job.description}</p>
-                        <div className="flex flex-wrap gap-2">
-                          {job.technologies.map((tech, techIndex) => (
-                            <span key={techIndex} className="text-xs text-zinc-400 dark:text-zinc-500">
-                              {tech}
-                              {techIndex < job.technologies.length - 1 ? " /" : ""}
-                            </span>
-                          ))}
-                        </div>
-                      </li>
-                    </AnimateIn>
-                  ))}
-                </ul>
-                {experience.length > initialExperienceCount && (
-                  <button
-                    onClick={() => setIsExperienceExpanded(!isExperienceExpanded)}
-                    className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors mx-auto"
-                  >
-                    {isExperienceExpanded ? (
-                      <>
-                        Show Less <ChevronUp className="w-4 h-4" />
-                      </>
-                    ) : (
-                      <>
-                        Show More Experience <ChevronDown className="w-4 h-4" />
-                      </>
-                    )}
-                  </button>
+          <div className="space-y-8">
+            <ul className="space-y-8">
+              {visibleExperience.map((job, index) => {
+                const delay = 0.5 + (index < initialExperienceCount ? index : index - initialExperienceCount) * 0.1;
+                return (
+                  <AnimateIn key={index} variant="fadeLeft" delay={delay}>
+                    <li className="group hover:translate-x-1 transition-all duration-300 ease-out">
+                      <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1">
+                        <h3 className="text-md font-medium">
+                          {job.role} {job.role === "Freelance" ? "" : "at"} {job.company}
+                        </h3>
+                        <span className="text-xs text-zinc-400 dark:text-zinc-500">{job.period}</span>
+                      </div>
+                      <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-2">{job.description}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {job.technologies.map((tech, techIndex) => (
+                          <span key={techIndex} className="text-xs text-zinc-400 dark:text-zinc-500">
+                            {tech}
+                            {techIndex < job.technologies.length - 1 ? " /" : ""}
+                          </span>
+                        ))}
+                      </div>
+                    </li>
+                  </AnimateIn>
+                );
+              })}
+            </ul>
+            {experience.length > initialExperienceCount && (
+              <button
+                onClick={() => setIsExperienceExpanded(!isExperienceExpanded)}
+                className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors mx-auto"
+              >
+                {isExperienceExpanded ? (
+                  <>
+                    Show Less <ChevronUp className="w-4 h-4" />
+                  </>
+                ) : (
+                  <>
+                    Show More Experience <ChevronDown className="w-4 h-4" />
+                  </>
                 )}
-              </div>
-            );
-          })()}
+              </button>
+            )}
+          </div>
         </section>
       </AnimateIn>
 
