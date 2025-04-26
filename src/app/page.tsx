@@ -1,25 +1,25 @@
+"use client";
+
 import SocialMedia from "@/components/SocialMedia";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { AnimateIn } from "@/components/animations/AnimateIn";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
+import { useState } from "react";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="text-zinc-900 dark:text-zinc-100 max-w-2xl mx-auto px-4 py-10 md:py-16">
-      <div className="absolute top-4 right-4">
-        <ThemeToggle />
-      </div>
-
+    <main className="text-zinc-900 dark:text-zinc-100 max-w-xl mx-auto px-4 py-4 mt-16">
       <AnimateIn variant="fadeUp">
         <section className="mb-12">
           <AnimateIn variant="fadeUp" delay={0.2}>
-            <h1 className="text-xl font-medium tracking-tight mb-8 flex items-baseline">
+            <h1 className="text-xl font-medium tracking-tight mb-8 flex items-baseline justify-between">
               <span>Hey, I&apos;m Ahmet</span>
+              <ThemeToggle />
             </h1>
           </AnimateIn>
           <AnimateIn variant="fadeUp" delay={0.4}>
-            <p className="text-zinc-600 dark:text-zinc-400 max-w-xl mb-6">
+            <p className="text-sm text-zinc-600 dark:text-zinc-400 max-w-xl mb-6">
               London-based full-stack developer passionate about crafting exceptional digital experiences. I transform complex challenges into elegant,
               user-centric solutions.
             </p>
@@ -36,94 +36,146 @@ export default function Home() {
       <AnimateIn variant="fadeUp" delay={0.2}>
         <section className="mb-12">
           <AnimateIn variant="reveal" delay={0.3}>
-            <h2 className="text-xl font-medium tracking-tight mb-4 inline-block">Projects</h2>
+            <h2 className="text-lg font-medium tracking-tight mb-4 inline-block">Projects</h2>
           </AnimateIn>
-          <ul className="space-y-8">
-            {projects.map((project, index) => (
-              <AnimateIn key={index} variant="fadeLeft" delay={0.3 + index * 0.1}>
-                <li className="group hover:translate-x-1 transition-all duration-300 ease-out">
-                  <div className="flex items-baseline justify-between mb-1">
-                    <h3 className="text-md font-medium">{project.title}</h3>
-                    <div className="flex flex-row gap-2">
-                      {project.github ? (
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-                        >
-                          GitHub <ExternalLink className="w-3 h-3" />
-                        </a>
-                      ) : null}
-                      {project.link ? (
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-                        >
-                          View <ExternalLink className="w-3 h-3" />
-                        </a>
-                      ) : null}
-                    </div>
-                  </div>
-                  <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-2">{project.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, techIndex) => (
-                      <span key={techIndex} className="text-xs text-zinc-400 dark:text-zinc-500">
-                        {tech}
-                        {techIndex < project.technologies.length - 1 ? " /" : ""}
-                      </span>
-                    ))}
-                  </div>
-                </li>
-              </AnimateIn>
-            ))}
-          </ul>
+          {(() => {
+            const [isExpanded, setIsExpanded] = useState(false);
+            const initialProjectCount = 2;
+            const visibleProjects = isExpanded ? projects : projects.slice(0, initialProjectCount);
+
+            return (
+              <div className="space-y-8">
+                <ul className="space-y-8">
+                  {visibleProjects.map((project, index) => (
+                    <AnimateIn key={index} variant="fadeLeft" delay={0.3 + index * 0.1}>
+                      <li className="group hover:translate-x-1 transition-all duration-300 ease-out">
+                        <div className="flex items-baseline justify-between mb-1">
+                          <h3 className="text-md font-medium">{project.title}</h3>
+                          <div className="flex flex-row gap-2">
+                            {project.github ? (
+                              <a
+                                href={project.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                              >
+                                GitHub <ExternalLink className="w-3 h-3" />
+                              </a>
+                            ) : null}
+                            {project.link ? (
+                              <a
+                                href={project.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                              >
+                                View <ExternalLink className="w-3 h-3" />
+                              </a>
+                            ) : null}
+                          </div>
+                        </div>
+                        <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-2">{project.description}</p>
+                        <div className="flex flex-wrap gap-2">
+                          {project.technologies.map((tech, techIndex) => (
+                            <span key={techIndex} className="text-xs text-zinc-400 dark:text-zinc-500">
+                              {tech}
+                              {techIndex < project.technologies.length - 1 ? " /" : ""}
+                            </span>
+                          ))}
+                        </div>
+                      </li>
+                    </AnimateIn>
+                  ))}
+                </ul>
+                {projects.length > initialProjectCount && (
+                  <button
+                    onClick={() => setIsExpanded(!isExpanded)}
+                    className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors mx-auto"
+                  >
+                    {isExpanded ? (
+                      <>
+                        Show Less <ChevronUp className="w-4 h-4" />
+                      </>
+                    ) : (
+                      <>
+                        Show More Projects <ChevronDown className="w-4 h-4" />
+                      </>
+                    )}
+                  </button>
+                )}
+              </div>
+            );
+          })()}
         </section>
       </AnimateIn>
 
       <AnimateIn variant="fadeUp" delay={0.4}>
         <section className="mb-12">
           <AnimateIn variant="reveal" delay={0.5}>
-            <h2 className="text-xl font-medium tracking-tight mb-4 inline-block">Experience</h2>
+            <h2 className="text-lg font-medium tracking-tight mb-4 inline-block">Experience</h2>
           </AnimateIn>
-          <ul className="space-y-8">
-            {experience.map((job, index) => (
-              <AnimateIn key={index} variant="fadeLeft" delay={0.5 + index * 0.1}>
-                <li className="group hover:translate-x-1 transition-all duration-300 ease-out">
-                  <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1">
-                    <h3 className="text-md font-medium">
-                      {job.role} {job.role === "Freelance" ? "" : "at"} {job.company}
-                    </h3>
-                    <span className="text-xs text-zinc-400 dark:text-zinc-500">{job.period}</span>
-                  </div>
-                  <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-2">{job.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {job.technologies.map((tech, techIndex) => (
-                      <span key={techIndex} className="text-xs text-zinc-400 dark:text-zinc-500">
-                        {tech}
-                        {techIndex < job.technologies.length - 1 ? " /" : ""}
-                      </span>
-                    ))}
-                  </div>
-                </li>
-              </AnimateIn>
-            ))}
-          </ul>
+          {(() => {
+            const [isExpanded, setIsExpanded] = useState(false);
+            const initialExperienceCount = 2;
+            const visibleExperience = isExpanded ? experience : experience.slice(0, initialExperienceCount);
+
+            return (
+              <div className="space-y-8">
+                <ul className="space-y-8">
+                  {visibleExperience.map((job, index) => (
+                    <AnimateIn key={index} variant="fadeLeft" delay={0.5 + index * 0.1}>
+                      <li className="group hover:translate-x-1 transition-all duration-300 ease-out">
+                        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1">
+                          <h3 className="text-md font-medium">
+                            {job.role} {job.role === "Freelance" ? "" : "at"} {job.company}
+                          </h3>
+                          <span className="text-xs text-zinc-400 dark:text-zinc-500">{job.period}</span>
+                        </div>
+                        <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-2">{job.description}</p>
+                        <div className="flex flex-wrap gap-2">
+                          {job.technologies.map((tech, techIndex) => (
+                            <span key={techIndex} className="text-xs text-zinc-400 dark:text-zinc-500">
+                              {tech}
+                              {techIndex < job.technologies.length - 1 ? " /" : ""}
+                            </span>
+                          ))}
+                        </div>
+                      </li>
+                    </AnimateIn>
+                  ))}
+                </ul>
+                {experience.length > initialExperienceCount && (
+                  <button
+                    onClick={() => setIsExpanded(!isExpanded)}
+                    className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors mx-auto"
+                  >
+                    {isExpanded ? (
+                      <>
+                        Show Less <ChevronUp className="w-4 h-4" />
+                      </>
+                    ) : (
+                      <>
+                        Show More Experience <ChevronDown className="w-4 h-4" />
+                      </>
+                    )}
+                  </button>
+                )}
+              </div>
+            );
+          })()}
         </section>
       </AnimateIn>
 
       <AnimateIn variant="fadeUp" delay={0.6}>
         <section className="mb-12">
           <AnimateIn variant="reveal" delay={0.7}>
-            <h2 className="text-xl font-medium tracking-tight mb-4 inline-block">Tools & Software</h2>
+            <h2 className="text-lg font-medium tracking-tight mb-4 inline-block">Tools & Software</h2>
           </AnimateIn>
-          <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-7 gap-y-6 gap-x-4">
+          <div className="grid grid-cols-5 sm:grid-cols-7 gap-y-6 gap-x-4">
             {tools.map(({ logo, title }, index) => (
               <AnimateIn key={index} variant="scale" delay={0.7 + index * 0.03}>
                 <div className="flex flex-col items-center group">
-                  <div className="relative h-6 w-6 md:h-8 md:w-8 mb-3 transition-all duration-300 ease-out group-hover:scale-110 group-hover:-translate-y-1">
+                  <div className="relative h-6 w-6 sm:h-8 sm:w-8 mb-3 transition-all duration-300 ease-out group-hover:scale-110 group-hover:-translate-y-1">
                     <Image src={logo} alt={`${title} logo`} fill className="object-contain drop-shadow-md" loading="eager" />
                   </div>
                   <span className="text-xs text-zinc-500 dark:text-zinc-400">{title}</span>

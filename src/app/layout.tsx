@@ -43,8 +43,8 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(getUrl),
   title: {
-    default: "Ahmet Kilinc |  Designer & Developer | Based in London",
-    template: `%s - Ahmet Kilinc |  Designer & Developer | Based in London`,
+    default: "Ahmet Kilinc | Software Engineer | Based in London",
+    template: `%s - Ahmet Kilinc | Software Engineer | Based in London`,
   },
   description: "Explore my projects and previous work, or contact me.",
 };
