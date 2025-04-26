@@ -8,6 +8,14 @@ import { useState } from "react";
 import Image from "next/image";
 
 export default function Home() {
+  const [isProjectsExpanded, setIsProjectsExpanded] = useState(false);
+  const initialProjectCount = 2;
+  const visibleProjects = isProjectsExpanded ? projects : projects.slice(0, initialProjectCount);
+
+  const [isExperienceExpanded, setIsExperienceExpanded] = useState(false);
+  const initialExperienceCount = 2;
+  const visibleExperience = isExperienceExpanded ? experience : experience.slice(0, initialExperienceCount);
+
   return (
     <main className="text-zinc-900 dark:text-zinc-100 max-w-xl mx-auto px-4 py-4 mt-16">
       <AnimateIn variant="fadeUp">
@@ -39,10 +47,6 @@ export default function Home() {
             <h2 className="text-lg font-medium tracking-tight mb-4 inline-block">Projects</h2>
           </AnimateIn>
           {(() => {
-            const [isExpanded, setIsExpanded] = useState(false);
-            const initialProjectCount = 2;
-            const visibleProjects = isExpanded ? projects : projects.slice(0, initialProjectCount);
-
             return (
               <div className="space-y-8">
                 <ul className="space-y-8">
@@ -89,10 +93,10 @@ export default function Home() {
                 </ul>
                 {projects.length > initialProjectCount && (
                   <button
-                    onClick={() => setIsExpanded(!isExpanded)}
+                    onClick={() => setIsProjectsExpanded(!isProjectsExpanded)}
                     className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors mx-auto"
                   >
-                    {isExpanded ? (
+                    {isProjectsExpanded ? (
                       <>
                         Show Less <ChevronUp className="w-4 h-4" />
                       </>
@@ -115,10 +119,6 @@ export default function Home() {
             <h2 className="text-lg font-medium tracking-tight mb-4 inline-block">Experience</h2>
           </AnimateIn>
           {(() => {
-            const [isExpanded, setIsExpanded] = useState(false);
-            const initialExperienceCount = 2;
-            const visibleExperience = isExpanded ? experience : experience.slice(0, initialExperienceCount);
-
             return (
               <div className="space-y-8">
                 <ul className="space-y-8">
@@ -146,10 +146,10 @@ export default function Home() {
                 </ul>
                 {experience.length > initialExperienceCount && (
                   <button
-                    onClick={() => setIsExpanded(!isExpanded)}
+                    onClick={() => setIsExperienceExpanded(!isExperienceExpanded)}
                     className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors mx-auto"
                   >
-                    {isExpanded ? (
+                    {isExperienceExpanded ? (
                       <>
                         Show Less <ChevronUp className="w-4 h-4" />
                       </>
