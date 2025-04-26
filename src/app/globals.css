@@ -120,15 +120,13 @@
     @apply bg-background text-foreground;
   }
 
-  
   html {
     transition: color 350ms ease, background-color 350ms ease;
   }
-  
+
   html * {
     transition: color 350ms ease, background-color 350ms ease, border-color 350ms ease, opacity 350ms ease, transform 350ms ease;
   }
-  
 }
 
 @keyframes float {
@@ -184,9 +182,15 @@
 }
 
 @keyframes twinkle {
-  0% { opacity: 0.4; }
-  50% { opacity: 1; }
-  100% { opacity: 0.4; }
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.4;
+  }
 }
 
 .animate-twinkle {
@@ -209,7 +213,11 @@
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
-

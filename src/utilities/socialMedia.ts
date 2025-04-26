@@ -1,4 +1,4 @@
-const socialMedia = [
+export default [
   {
     name: "github",
     link: "https://dub.sh/ahmetgh",
@@ -20,5 +20,3 @@ const socialMedia = [
     link: "https://dub.sh/ahmetig",
   },
 ];
-
-export default socialMedia;

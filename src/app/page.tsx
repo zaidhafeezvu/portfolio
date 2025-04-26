@@ -94,7 +94,7 @@ export default function Home() {
                 <li className="group hover:translate-x-1 transition-all duration-300 ease-out">
                   <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1">
                     <h3 className="text-md font-medium">
-                      {job.role} @ {job.company}
+                      {job.role} {job.role === "Freelance" ? "" : "at"} {job.company}
                     </h3>
                     <span className="text-xs text-zinc-400 dark:text-zinc-500">{job.period}</span>
                   </div>
@@ -187,18 +187,18 @@ const projects = [
 
 const experience = [
   {
-    role: "Lead Engineer",
+    role: "Software Engineer",
     company: "Zero Email Inc. (US, remote)",
     period: "Feb 2025 - Present",
     description:
-      "Leading the frontend development team, implementing new features, and optimising performance for a new, groundbreaking AI enabled email client.",
+      "Software engineer responsible for core features and performance optimisations for an innovative AI-powered email client, focusing on intelligent email processing and real-time collaboration.",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Postgres", "Google APIs"],
   },
   {
-    role: "Self Employed",
-    company: "Various Clients",
+    role: "Freelance",
     period: "Mar 2024 - Present",
-    description: "Worked with various clients on a wide range of projects.",
+    description:
+      "Delivering custom web solutions for diverse clients, specialising in e-commerce platforms, content management systems, and business automation tools.",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Postgres", "MongoDB", "PayloadCMS", "Google APIs"],
   },
   {

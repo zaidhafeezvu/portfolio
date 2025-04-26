@@ -7,12 +7,11 @@ import { useEffect, useState } from "react";
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  
+
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
- 
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -27,11 +26,7 @@ export function ThemeToggle() {
       className="w-8 h-8 flex items-center justify-center rounded-md bg-transparent hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
       aria-label="Toggle theme"
     >
-      {theme === "dark" ? (
-        <Sun className="w-4 h-4 text-zinc-100" />
-      ) : (
-        <Moon className="w-4 h-4 text-zinc-900" />
-      )}
+      {theme === "dark" ? <Sun className="w-4 h-4 text-zinc-100" /> : <Moon className="w-4 h-4 text-zinc-900" />}
     </button>
   );
 }

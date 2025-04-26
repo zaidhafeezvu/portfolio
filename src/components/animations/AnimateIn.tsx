@@ -3,13 +3,7 @@
 import { cn } from "@/utilities/cn";
 import { useEffect, useRef, useState } from "react";
 
-type AnimationVariant = 
-  | "fadeUp" 
-  | "fadeLeft" 
-  | "fadeRight" 
-  | "reveal" 
-  | "scale"
-  | "none";
+type AnimationVariant = "fadeUp" | "fadeLeft" | "fadeRight" | "reveal" | "scale" | "none";
 
 type AnimateInProps = {
   children: React.ReactNode;
@@ -19,28 +13,21 @@ type AnimateInProps = {
   once?: boolean;
 };
 
-export function AnimateIn({ 
-  children, 
-  delay = 0, 
-  className = "", 
-  variant = "fadeUp",
-  once = true
-}: AnimateInProps) {
+export function AnimateIn({ children, delay = 0, className = "", variant = "fadeUp", once = true }: AnimateInProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsVisible(true);
       if (once) setHasAnimated(true);
     }, delay * 1000);
-    
-   
-    if (!once && typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+
+    if (!once && typeof window !== "undefined" && "IntersectionObserver" in window) {
       const observer = new IntersectionObserver(
         (entries) => {
-          entries.forEach(entry => {
+          entries.forEach((entry) => {
             if (entry.isIntersecting) {
               if (!hasAnimated || !once) {
                 setIsVisible(true);
@@ -52,11 +39,11 @@ export function AnimateIn({
         },
         { threshold: 0.1 }
       );
-      
+
       if (ref.current) {
         observer.observe(ref.current);
       }
-      
+
       return () => {
         if (ref.current) {
           observer.unobserve(ref.current);
@@ -64,36 +51,35 @@ export function AnimateIn({
         clearTimeout(timeout);
       };
     }
-    
+
     return () => clearTimeout(timeout);
   }, [delay, once, hasAnimated]);
-  
 
   const getAnimationStyles = () => {
     if (hasAnimated && once) return {};
-    
+
     const baseStyles = {
       opacity: isVisible ? 1 : 0,
-      transform: 'none',
+      transform: "none",
       transition: `opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), transform 600ms cubic-bezier(0.16, 1, 0.3, 1)`,
       transitionDelay: `${delay}s`,
     };
-    
+
     if (!isVisible) {
       switch (variant) {
         case "fadeUp":
-          return { ...baseStyles, transform: 'translateY(20px)' };
+          return { ...baseStyles, transform: "translateY(20px)" };
         case "fadeLeft":
-          return { ...baseStyles, transform: 'translateX(-20px)' };
+          return { ...baseStyles, transform: "translateX(-20px)" };
         case "fadeRight":
-          return { ...baseStyles, transform: 'translateX(20px)' };
+          return { ...baseStyles, transform: "translateX(20px)" };
         case "scale":
-          return { ...baseStyles, transform: 'scale(0.95)' };
+          return { ...baseStyles, transform: "scale(0.95)" };
         case "reveal":
-          return { 
-            ...baseStyles, 
-            clipPath: 'inset(0 100% 0 0)',
-            transform: 'none'
+          return {
+            ...baseStyles,
+            clipPath: "inset(0 100% 0 0)",
+            transform: "none",
           };
         case "none":
           return { opacity: 1 };
@@ -101,23 +87,19 @@ export function AnimateIn({
           return baseStyles;
       }
     }
-    
+
     if (variant === "reveal" && isVisible) {
-      return { 
+      return {
         ...baseStyles,
-        clipPath: 'inset(0 0 0 0)',
+        clipPath: "inset(0 0 0 0)",
       };
     }
-    
+
     return baseStyles;
   };
-  
+
   return (
-    <div
-      ref={ref}
-      className={cn(className)}
-      style={getAnimationStyles()}
-    >
+    <div ref={ref} className={cn(className)} style={getAnimationStyles()}>
       {children}
     </div>
   );
