@@ -205,7 +205,7 @@ const projects = [
   {
     title: "Portfolio Website",
     description: "A minimalist portfolio website showcasing projects and skills with a clean, responsive design.",
-    link: "https://ahmetkdev.dev/",
+    link: "https://ahmetk.dev/",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
   },
   {
@@ -230,7 +230,7 @@ const projects = [
   {
     title: "Payload CMS Media Grid View Plugin",
     description: "A plugin for Payload CMS that allows users to view media in a grid view.",
-    github: "https://github.com/ahmetskilinc/payload-media-grid-view-plugin",
+    github: "https://github.com/ahmetskilinc/payload-media-grid-plugin",
     technologies: ["Next.js", "TypeScript", "Payload CMS"],
   },
 ];
