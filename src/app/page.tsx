@@ -167,7 +167,7 @@ export default function Home() {
       <AnimateIn variant="fadeUp" delay={0.6}>
         <section className="mb-12">
           <AnimateIn variant="reveal" delay={0.7}>
-            <h2 className="text-lg font-medium tracking-tight mb-4 inline-block">Tools & Software</h2>
+            <h2 className="text-lg font-medium tracking-tight mb-4 inline-block">Tools & Stack</h2>
           </AnimateIn>
           <div className="grid grid-cols-5 sm:grid-cols-7 gap-y-6 gap-x-4">
             {tools.map(({ logo, title }, index) => (
@@ -277,6 +277,10 @@ const tools = [
     title: "NextJS",
   },
   {
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/reactrouter/reactrouter-original.svg",
+    title: "React Router",
+  },
+  {
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
     title: "VueJS",
   },
@@ -301,8 +305,36 @@ const tools = [
     title: "Typescript",
   },
   {
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trpc/trpc-original.svg",
+    title: "TRPC",
+  },
+  {
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
+    title: "Google Cloud",
+  },
+  {
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    title: "AWS",
+  },
+  {
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
     title: "NodeJS",
+  },
+  {
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bun/bun-original.svg",
+    title: "Bun",
+  },
+  {
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+    title: "PostgreSQL",
+  },
+  {
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cloudflare/cloudflare-original.svg",
+    title: "Cloudflare",
+  },
+  {
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
+    title: "Vercel",
   },
   {
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg",
