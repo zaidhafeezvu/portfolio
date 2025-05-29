@@ -173,7 +173,7 @@ export default function Home() {
             {tools.map(({ logo, title }, index) => (
               <AnimateIn key={index} variant="scale" delay={0.7 + index * 0.03}>
                 <div className="flex flex-col items-center group">
-                  <div className="relative h-6 w-6 sm:h-8 sm:w-8 mb-3 transition-all duration-300 ease-out group-hover:scale-110 group-hover:-translate-y-1">
+                  <div className="relative h-6 w-6 sm:h-8 sm:w-8 mb-3 transition-all duration-300 ease-out group-hover:scale-110 group-hover:-translate-y-1 text-center">
                     <Image src={logo} alt={`${title} logo`} fill className="object-contain drop-shadow-md" loading="eager" />
                   </div>
                   <span className="text-xs text-zinc-500 dark:text-zinc-400">{title}</span>
