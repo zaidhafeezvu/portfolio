@@ -201,7 +201,7 @@ const projects = [
     title: "UI Registry",
     description: "A simple UI registry for components and blocks using the shadcn api.",
     link: "https://l.ahmet.studio/ui",
-    github: "https://l.ahmet.studio/ui",
+    github: "https://l.ahmet.studio/gh",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI"],
   },
   {
