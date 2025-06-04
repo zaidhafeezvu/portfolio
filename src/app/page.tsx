@@ -8,9 +8,10 @@ import { useState } from "react";
 import Image from "next/image";
 
 export default function Home() {
-  const [isProjectsExpanded, setIsProjectsExpanded] = useState(false);
-  const initialProjectCount = 2;
-  const visibleProjects = isProjectsExpanded ? projects : projects.slice(0, initialProjectCount);
+  // const [isProjectsExpanded, setIsProjectsExpanded] = useState(false);
+  // const initialProjectCount = 2;
+  // const visibleProjects = isProjectsExpanded ? projects : projects.slice(0, initialProjectCount);
+  const visibleProjects = projects;
 
   const [isExperienceExpanded, setIsExperienceExpanded] = useState(false);
   const initialExperienceCount = 2;
@@ -49,7 +50,8 @@ export default function Home() {
           <div className="space-y-8">
             <ul className="space-y-8">
               {visibleProjects.map((project, index) => {
-                const delay = 0.3 + (index < initialProjectCount ? index : index - initialProjectCount) * 0.1;
+                // const delay = 0.3 + (index < initialProjectCount ? index : index - initialProjectCount) * 0.1;
+                const delay = 0.3 + index * 0.1;
                 return (
                   <AnimateIn key={index} variant="fadeLeft" delay={delay}>
                     <li className="group hover:translate-x-1 transition-all duration-300 ease-out">
@@ -92,7 +94,7 @@ export default function Home() {
                 );
               })}
             </ul>
-            {projects.length > initialProjectCount && (
+            {/* {projects.length > initialProjectCount && (
               <button
                 onClick={() => setIsProjectsExpanded(!isProjectsExpanded)}
                 className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors mx-auto"
@@ -107,7 +109,7 @@ export default function Home() {
                   </>
                 )}
               </button>
-            )}
+            )} */}
           </div>
         </section>
       </AnimateIn>
@@ -196,6 +198,13 @@ export default function Home() {
 
 const projects = [
   {
+    title: "UI Registry",
+    description: "A simple UI registry for components and blocks using the shadcn api.",
+    link: "https://l.ahmet.studio/ui",
+    github: "https://l.ahmet.studio/ui",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI"],
+  },
+  {
     title: "E-commerce Platform",
     description: "A full-featured e-commerce platform with product management, cart functionality, and payment processing.",
     link: "https://payload-ecommerce-app.vercel.app/",
@@ -205,7 +214,7 @@ const projects = [
   {
     title: "Portfolio Website",
     description: "A minimalist portfolio website showcasing projects and skills with a clean, responsive design.",
-    link: "https://ahmetk.dev/",
+    link: "https://dub.sh/ahmet/",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
   },
   {
