@@ -22,7 +22,7 @@ const RootLayout: React.FC<Props> = ({ children }) => {
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body className="font-geist-sans bg-white dark:bg-zinc-900">
+      <body className="font-geist-sans bg-white overscroll-none dark:bg-zinc-900">
         <ThemeProvider defaultTheme="system" storageKey="ahmet-theme">
           {children}
         </ThemeProvider>
