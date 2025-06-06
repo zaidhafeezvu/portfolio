@@ -198,6 +198,13 @@ export default function Home() {
 
 const projects = [
   {
+    title: "oss.now",
+    description: "A place to share your open source projects and find new ones.",
+    link: "https://oss.now",
+    github: "https://github.com/ahmetskilinc/ossdotnow",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "Payload CMS", "Postgres"],
+  },
+  {
     title: "UI Registry",
     description: "A simple UI registry for components and blocks using the shadcn api.",
     link: "https://l.ahmet.studio/ui",
