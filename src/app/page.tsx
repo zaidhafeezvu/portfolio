@@ -261,8 +261,8 @@ const experience = [
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Postgres", "Google APIs"],
   },
   {
-    role: "Freelance",
-    period: "Mar 2024 - Present",
+    role: "Freelance Developer",
+    period: "Mar 2024 - May 2025",
     description:
       "Delivering custom web solutions for diverse clients, specialising in e-commerce platforms, content management systems, and business automation tools.",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Postgres", "MongoDB", "PayloadCMS", "Google APIs"],
@@ -280,6 +280,13 @@ const experience = [
     period: "Nov 2020 - Aug 2023",
     description: "Developed and maintained the company brochure site to guide and increase sales.",
     technologies: ["Vue.js", "Nuxt.js", "JavaScript", "SQL", "MongoDB", "C#", "ASP.NET", "WordPress"],
+  },
+  {
+    role: "Junior Web Developer",
+    company: "Absowebly",
+    period: "Jul 2018 - Sep 2018",
+    description: "Developing and maintaining client websites with a proprietary CMS.",
+    technologies: ["PHP", "HTML", "CSS", "JavaScript", "Sass"],
   },
 ];
 
