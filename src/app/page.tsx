@@ -188,7 +188,7 @@ export default function Home() {
 
       <AnimateIn variant="fadeUp" delay={0.8}>
         <footer className="pt-4 text-xs text-zinc-400 dark:text-zinc-500 flex justify-between items-center">
-          <div>ahmetkdev</div>
+          <div>ahmet.studio</div>
           <div>Built with Next.js</div>
         </footer>
       </AnimateIn>
