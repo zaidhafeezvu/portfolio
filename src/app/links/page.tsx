@@ -13,8 +13,8 @@ export default function Links() {
         <AnimateIn variant="fadeUp">
           <section className="mb-12">
             <AnimateIn variant="fadeUp" delay={0.2}>
-              <h1 className="text-xl font-medium tracking-tight mb-8 flex items-baseline justify-between">
-                <span>Hey, I&apos;m Ahmet</span>
+              <h1 className="text-lg font-medium tracking-tight mb-8 flex items-baseline justify-between">
+                <span>some of my useful links</span>
                 <ThemeToggle />
               </h1>
             </AnimateIn>
