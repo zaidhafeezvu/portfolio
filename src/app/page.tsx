@@ -20,7 +20,7 @@ export default function Home() {
           </AnimateIn>
           <AnimateIn variant="fadeUp" delay={0.4}>
             <p className="text-sm text-zinc-600 dark:text-zinc-400 max-w-xl mb-8">
-              I build apps. Currently building{" "}
+              Software Engineer from London. Open to work. Contact me below. Currently building{" "}
               <a
                 href="https://0.email"
                 target="_blank"
