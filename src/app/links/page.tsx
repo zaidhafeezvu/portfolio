@@ -22,6 +22,23 @@ export default function Links() {
         </AnimateIn>
 
         <AnimateIn variant="fadeUp" delay={0.4}>
+          <div className="flex flex-col gap-2 mb-8">
+            <div className="group">
+              <Link
+                href="https://cal.link/ahmet"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between text-lg hover:translate-x-1 transition-all duration-300 ease-out"
+                onClick={() => track(`link_clicked_cal`)}
+              >
+                <span>Book a call</span>
+                <ArrowUpRight />
+              </Link>
+            </div>
+          </div>
+        </AnimateIn>
+
+        <AnimateIn variant="fadeUp" delay={0.4}>
           <div className="flex flex-col gap-2">
             {projectLinks.map((link) => (
               <div key={link.name} className="group">

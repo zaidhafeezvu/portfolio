@@ -5,19 +5,21 @@ import Github from "./icons/Github";
 import X from "./icons/X";
 import Instagram from "./icons/Instagram";
 import LinkedIn from "./icons/LinkedIn";
-import React from "react";
+import Calcom from "./icons/Calcom";
+import React, { SVGProps } from "react";
 import socialMedia from "@/utilities/socialMedia";
 
-type IconProps = { name: string; className: string };
+type IconProps = SVGProps<SVGSVGElement> & { name: string };
 
-const Icon: React.FC<IconProps> = ({ name, className }) => {
+const Icon: React.FC<IconProps> = ({ name, ...props }) => {
   const icons: { [key: string]: React.JSX.Element } = {
-    instagram: <Instagram className={className} />,
-    linkedin: <LinkedIn className={className} />,
-    codepen: <Codepen className={className} />,
-    email: <Email className={className} />,
-    github: <Github className={className} />,
-    x: <X className={className} />,
+    instagram: <Instagram {...props} />,
+    linkedin: <LinkedIn {...props} />,
+    codepen: <Codepen {...props} />,
+    email: <Email {...props} />,
+    github: <Github {...props} />,
+    x: <X {...props} />,
+    calcom: <Calcom {...props} />,
   };
 
   return icons[name];
