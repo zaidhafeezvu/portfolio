@@ -27,7 +27,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-900 dark:text-zinc-100 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-                onClick={() => track("zero_email_click")}
+                onClick={() => track("zero_email_clicked")}
               >
                 Zero
               </a>{" "}
@@ -37,7 +37,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-900 dark:text-zinc-100 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-                onClick={() => track("oss.now_click")}
+                onClick={() => track("oss.now_clicked")}
               >
                 oss.now
               </a>
@@ -87,7 +87,7 @@ export default function Home() {
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-                                  onClick={() => track(`${project.title}_github_click`)}
+                                  onClick={() => track(`${project.title}_github_clicked`)}
                                 >
                                   GitHub <ExternalLink className="w-3 h-3" />
                                 </a>
@@ -98,7 +98,7 @@ export default function Home() {
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-                                  onClick={() => track(`${project.title}_click`)}
+                                  onClick={() => track(`${project.title}_clicked`)}
                                 >
                                   View <ExternalLink className="w-3 h-3" />
                                 </a>

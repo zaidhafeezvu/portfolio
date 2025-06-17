@@ -35,7 +35,7 @@ const SocialMedia: React.FC = () => {
           href={link.link}
           target="_blank"
           className="overflow-hidden transition-all text-zinc-900/60 dark:text-zinc-100/60 hover:text-zinc-900/100 dark:hover:text-zinc-100/100"
-          onClick={() => track(`${link.name}_link_click`)}
+          onClick={() => track(`${link.name}_link_clicked`)}
         >
           <p className="sr-only">{link.name}</p>
           <Icon name={link.name} className="transition-all h-5 w-5" />

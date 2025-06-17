@@ -29,7 +29,7 @@ export default function Links() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-between text-lg hover:translate-x-1 transition-all duration-300 ease-out"
-                onClick={() => track(`link_clicked_cal`)}
+                onClick={() => track(`cal_link_clicked`)}
               >
                 <span>Book a call</span>
                 <ArrowUpRight />
@@ -47,7 +47,7 @@ export default function Links() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between text-lg hover:translate-x-1 transition-all duration-300 ease-out"
-                  onClick={() => track(`link_clicked_${link.name.toLowerCase()}`)}
+                  onClick={() => track(link.track || `${link.name.toLowerCase()}_link_clicked`)}
                 >
                   <span>{link.name}</span>
                   <ArrowUpRight />
@@ -66,7 +66,7 @@ export default function Links() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between text-lg hover:translate-x-1 transition-all duration-300 ease-out"
-                  onClick={() => track(`link_clicked_${link.name.toLowerCase()}`)}
+                  onClick={() => track(link.track || `${link.name.toLowerCase()}_link_clicked`)}
                 >
                   <span>{link.name}</span>
                   <ArrowUpRight />
@@ -89,11 +89,12 @@ export default function Links() {
 
 const projectLinks = [
   {
-    name: "ossdotnow",
+    name: "oss.now",
     url: "https://oss.now",
   },
   {
     name: "Zero/0.email",
+    track: "zero_email_clicked",
     url: "https://0.email",
   },
   {
