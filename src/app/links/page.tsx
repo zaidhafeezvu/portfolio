@@ -87,7 +87,13 @@ export default function Links() {
   );
 }
 
-const projectLinks = [
+type Link = {
+  name: string;
+  url: string;
+  track?: string;
+};
+
+const projectLinks: Link[] = [
   {
     name: "oss.now",
     url: "https://oss.now",
@@ -103,7 +109,7 @@ const projectLinks = [
   },
 ];
 
-const socialLinks = [
+const socialLinks: Link[] = [
   {
     name: "Portfolio",
     url: "https://dub.sh/ahmet",
