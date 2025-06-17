@@ -4,6 +4,7 @@ import SocialMedia from "@/components/SocialMedia";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { AnimateIn } from "@/components/animations/AnimateIn";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { track } from "@vercel/analytics";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 
@@ -26,6 +27,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-900 dark:text-zinc-100 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                onClick={() => track("zero_email_click")}
               >
                 Zero
               </a>{" "}
@@ -35,6 +37,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-900 dark:text-zinc-100 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                onClick={() => track("oss.now_click")}
               >
                 oss.now
               </a>
@@ -84,6 +87,7 @@ export default function Home() {
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                                  onClick={() => track(`${project.title}_github_click`)}
                                 >
                                   GitHub <ExternalLink className="w-3 h-3" />
                                 </a>
@@ -94,6 +98,7 @@ export default function Home() {
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                                  onClick={() => track(`${project.title}_click`)}
                                 >
                                   View <ExternalLink className="w-3 h-3" />
                                 </a>
