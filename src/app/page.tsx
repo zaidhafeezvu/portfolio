@@ -36,7 +36,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="text-zinc-900 dark:text-zinc-100 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
               >
-                oss.dow
+                oss.now
               </a>
               .
             </p>
