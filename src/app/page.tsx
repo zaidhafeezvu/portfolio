@@ -136,7 +136,7 @@ export default function Home() {
                         <li className="group hover:translate-x-1 transition-all duration-300 ease-out">
                           <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1">
                             <h3 className="text-md font-medium">
-                              {job.role} {job.role === "Freelance" ? "" : "at"} {job.company}
+                              {job.role} {job.role.toLowerCase().includes("freelance") ? "" : "at"} {job.company}
                             </h3>
                             <span className="text-xs text-zinc-400 dark:text-zinc-500">{job.period}</span>
                           </div>
@@ -303,14 +303,14 @@ const tools = [
   //   logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nuxtjs/nuxtjs-original.svg",
   //   title: "NuxtJS",
   // },
-  {
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
-    title: "HTML",
-  },
-  {
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
-    title: "CSS",
-  },
+  // {
+  //   logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+  //   title: "HTML",
+  // },
+  // {
+  //   logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+  //   title: "CSS",
+  // },
   // {
   //   logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
   //   title: "Javascript",
