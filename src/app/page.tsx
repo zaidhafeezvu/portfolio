@@ -3,10 +3,19 @@
 import SocialMedia from "@/components/SocialMedia";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { AnimateIn } from "@/components/animations/AnimateIn";
+import Bun from "@/components/icons/Bun";
+import DrizzleORM from "@/components/icons/Drizzle";
+import Nextjs from "@/components/icons/Next";
+import Nodejs from "@/components/icons/Nodejs";
+import Postgres from "@/components/icons/Postgres";
+import ReactIcon from "@/components/icons/React";
+import TailwindCSS from "@/components/icons/Tailwind";
+import Trpc from "@/components/icons/Trpc";
+import TypeScript from "@/components/icons/Typescript";
+import Vercel from "@/components/icons/Vercel";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { track } from "@vercel/analytics";
 import { ExternalLink } from "lucide-react";
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -160,13 +169,31 @@ export default function Home() {
         </TabsContent>
         <TabsContent value="tools">
           <AnimateIn variant="fadeUp" delay={0}>
+            <h2 className="text-md font-medium mb-4">Frontend</h2>
             <section className="mb-12">
-              <div className="flex flex-wrap gap-y-6 gap-x-4 justify-center">
-                {tools.map(({ logo, title }, index) => (
+              <div className="flex flex-wrap gap-y-6 gap-x-4 justify-start">
+                {tools.frontend.map(({ Logo, title }, index) => (
                   <AnimateIn key={index} variant="scale" delay={0.1 + index * 0.03} className="w-[calc(25%-12px)] sm:w-[calc(20%-13px)]">
                     <div className="flex flex-col items-center group">
                       <div className="relative h-7 w-7 sm:h-8 sm:w-8 mb-3 transition-all duration-300 ease-out group-hover:scale-110 group-hover:-translate-y-1">
-                        <Image src={logo} alt={`${title} logo`} fill className="object-contain drop-shadow-md" loading="eager" />
+                        <Logo className="h-full w-full" />
+                      </div>
+                      <span className="text-xs text-zinc-500 dark:text-zinc-400 text-center whitespace-nowrap">{title}</span>
+                    </div>
+                  </AnimateIn>
+                ))}
+              </div>
+            </section>
+          </AnimateIn>
+          <AnimateIn variant="fadeUp" delay={0}>
+            <h2 className="text-md font-medium mb-4">Backend and Infrastructure</h2>
+            <section className="mb-12">
+              <div className="flex flex-wrap gap-y-6 gap-x-4 justify-start">
+                {tools.backend_and_infrastructure.map(({ Logo, title }, index) => (
+                  <AnimateIn key={index} variant="scale" delay={0.1 + index * 0.03} className="w-[calc(25%-12px)] sm:w-[calc(20%-13px)]">
+                    <div className="flex flex-col items-center group">
+                      <div className="relative h-7 w-7 sm:h-8 sm:w-8 mb-3 transition-all duration-300 ease-out group-hover:scale-110 group-hover:-translate-y-1">
+                        <Logo className="h-full w-full" />
                       </div>
                       <span className="text-xs text-zinc-500 dark:text-zinc-400 text-center whitespace-nowrap">{title}</span>
                     </div>
@@ -214,6 +241,7 @@ const projects = [
     title: "Portfolio Website",
     description: "A minimalist portfolio website showcasing projects and skills with a clean, responsive design.",
     link: "https://dub.sh/ahmet/",
+    github: "https://github.com/ahmetskilinc/portfolio-new-new-new-new",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
   },
   {
@@ -282,93 +310,89 @@ const experience = [
   },
 ];
 
-const tools = [
-  {
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-    title: "React",
-  },
-  {
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
-    title: "NextJS",
-  },
-  {
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/reactrouter/reactrouter-original.svg",
-    title: "React Router",
-  },
-  // {
-  //   logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
-  //   title: "VueJS",
-  // },
-  // {
-  //   logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nuxtjs/nuxtjs-original.svg",
-  //   title: "NuxtJS",
-  // },
-  // {
-  //   logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
-  //   title: "HTML",
-  // },
-  // {
-  //   logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
-  //   title: "CSS",
-  // },
-  // {
-  //   logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-  //   title: "Javascript",
-  // },
-  {
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-    title: "Typescript",
-  },
-  {
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trpc/trpc-original.svg",
-    title: "TRPC",
-  },
-  {
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
-    title: "Google Cloud",
-  },
-  // {
-  //   logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
-  //   title: "AWS",
-  // },
-  {
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-    title: "NodeJS",
-  },
-  {
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bun/bun-original.svg",
-    title: "Bun",
-  },
-  {
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-    title: "PostgreSQL",
-  },
-  {
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cloudflare/cloudflare-original.svg",
-    title: "Cloudflare",
-  },
-  {
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
-    title: "Vercel",
-  },
-  // {
-  //   logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg",
-  //   title: "Sass",
-  // },
-  {
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
-    title: "TailwindCSS",
-  },
-  {
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
-    title: "GIT",
-  },
-  // {
-  //   logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
-  //   title: "Figma",
-  // },
-  // {
-  //   logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sketch/sketch-original.svg",
-  //   title: "Sketch",
-  // },
-];
+const tools = {
+  frontend: [
+    {
+      Logo: (props: React.SVGProps<SVGSVGElement>) => <ReactIcon {...props} />,
+      title: "React",
+    },
+    {
+      Logo: (props: React.SVGProps<SVGSVGElement>) => <Nextjs {...props} />,
+      title: "NextJS",
+    },
+    // {
+    //   Logo: (props: React.SVGProps<SVGSVGElement>) => <ReactRouter {...props} />,
+    //   title: "React Router",
+    // },
+    // {
+    //   Logo: (props: React.SVGProps<SVGSVGElement>) => <Vue {...props} />,
+    //   title: "VueJS",
+    // },
+    // {
+    //   Logo: (props: React.SVGProps<SVGSVGElement>) => <Nuxt {...props} />,
+    //   title: "NuxtJS",
+    // },
+    // {
+    //   Logo: (props: React.SVGProps<SVGSVGElement>) => <Html {...props} />,
+    //   title: "HTML",
+    // },
+    // {
+    //   Logo: (props: React.SVGProps<SVGSVGElement>) => <Css {...props} />,
+    //   title: "CSS",
+    // },
+    // {
+    //   Logo: (props: React.SVGProps<SVGSVGElement>) => <JavaScript {...props} />,
+    //   title: "Javascript",
+    // },
+    {
+      Logo: (props: React.SVGProps<SVGSVGElement>) => <TypeScript {...props} />,
+      title: "Typescript",
+    },
+    // {
+    //   Logo: (props: React.SVGProps<SVGSVGElement>) => <Sass {...props} />,
+    //   title: "Sass",
+    // },
+    {
+      Logo: (props: React.SVGProps<SVGSVGElement>) => <TailwindCSS {...props} />,
+      title: "TailwindCSS",
+    },
+  ],
+  backend_and_infrastructure: [
+    {
+      Logo: (props: React.SVGProps<SVGSVGElement>) => <Trpc {...props} />,
+      title: "TRPC",
+    },
+    // {
+    //   Logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
+    //   title: "Google Cloud",
+    // },
+    // {
+    //   Logo: (props: React.SVGProps<SVGSVGElement>) => <AmazonWebServices {...props} />,
+    //   title: "AWS",
+    // },
+    // {
+    //   Logo: (props: React.SVGProps<SVGSVGElement>) => <Cloudflare {...props} />,
+    //   title: "Cloudflare",
+    // },
+    {
+      Logo: (props: React.SVGProps<SVGSVGElement>) => <Vercel {...props} />,
+      title: "Vercel",
+    },
+    {
+      Logo: (props: React.SVGProps<SVGSVGElement>) => <DrizzleORM {...props} />,
+      title: "DrizzleORM",
+    },
+    {
+      Logo: (props: React.SVGProps<SVGSVGElement>) => <Bun {...props} />,
+      title: "Bun",
+    },
+    {
+      Logo: (props: React.SVGProps<SVGSVGElement>) => <Nodejs {...props} />,
+      title: "NodeJS",
+    },
+    {
+      Logo: (props: React.SVGProps<SVGSVGElement>) => <Postgres {...props} />,
+      title: "PostgreSQL",
+    },
+  ],
+};
