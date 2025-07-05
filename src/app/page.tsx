@@ -14,6 +14,7 @@ import Trpc from "@/components/icons/Trpc";
 import TypeScript from "@/components/icons/Typescript";
 import Vercel from "@/components/icons/Vercel";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { cn } from "@/lib/utils";
 import { track } from "@vercel/analytics";
 import { ExternalLink } from "lucide-react";
 
@@ -68,19 +69,34 @@ export default function Home() {
             <TabsList className="mb-4 border-none bg-transparent p-0 -ml-[8px]">
               <TabsTrigger
                 value="projects"
-                className="!bg-transparent !border-none !shadow-none data-[state=active]:!text-neutral-800d dark:data-[state=active]:!text-neutral-500"
+                className={cn(
+                  "!bg-transparent !border-none !shadow-none",
+                  "!font-light data-[state=active]:!font-bold transition-all duration-300 ease-out",
+                  "!text-neutral-400 dark:!text-neutral-400",
+                  "data-[state=active]:!text-neutral-800 dark:data-[state=active]:!text-neutral-100"
+                )}
               >
                 Projects
               </TabsTrigger>
               <TabsTrigger
                 value="experience"
-                className="!bg-transparent !border-none !shadow-none  data-[state=active]:!text-neutral-800 dark:data-[state=active]:!text-neutral-500"
+                className={cn(
+                  "!bg-transparent !border-none !shadow-none",
+                  "!font-light data-[state=active]:!font-bold transition-all duration-300 ease-out",
+                  "!text-neutral-400 dark:!text-neutral-400",
+                  "data-[state=active]:!text-neutral-800 dark:data-[state=active]:!text-neutral-100"
+                )}
               >
                 Experience
               </TabsTrigger>
               <TabsTrigger
                 value="tools"
-                className="!bg-transparent !border-none !shadow-none  data-[state=active]:!text-neutral-800 dark:data-[state=active]:!text-neutral-500"
+                className={cn(
+                  "!bg-transparent !border-none !shadow-none",
+                  "!font-light data-[state=active]:!font-bold transition-all duration-300 ease-out",
+                  "!text-neutral-400 dark:!text-neutral-400",
+                  "data-[state=active]:!text-neutral-800 dark:data-[state=active]:!text-neutral-100"
+                )}
               >
                 Tools
               </TabsTrigger>
